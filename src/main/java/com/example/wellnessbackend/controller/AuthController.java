@@ -2,9 +2,11 @@ package com.example.wellnessbackend.controller;
 
 import com.example.wellnessbackend.dto.LoginRequest;
 import com.example.wellnessbackend.dto.RegisterRequest;
+import com.example.wellnessbackend.entity.PractitionerProfile;
 import com.example.wellnessbackend.entity.RefreshToken;
 import com.example.wellnessbackend.entity.Role;
 import com.example.wellnessbackend.entity.User;
+import com.example.wellnessbackend.repository.PractitionerProfileRepository;
 import com.example.wellnessbackend.repository.RefreshTokenRepository;
 import com.example.wellnessbackend.repository.UserRepository;
 import com.example.wellnessbackend.security.JwtUtil;
@@ -29,6 +31,7 @@ public class AuthController {
     private final RefreshTokenRepository refreshTokenRepository;
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
+    private final PractitionerProfileRepository practitionerProfileRepository;  // ⭐ Added
 
     // ------------------- REGISTER -------------------
     @PostMapping("/register")
@@ -44,7 +47,25 @@ public class AuthController {
         user.setRole(request.getRole() != null ? request.getRole() : Role.PATIENT);
         user.setVerified(false);
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+
+        // ------------------- AUTO CREATE PRACTITIONER PROFILE -------------------
+        if (savedUser.getRole() == Role.PRACTITIONER) {
+
+            // Check if already exists (safety)
+            if (practitionerProfileRepository.findByUserId(savedUser.getId()).isEmpty()) {
+
+                PractitionerProfile profile = PractitionerProfile.builder()
+                        .userId(savedUser.getId())
+                        .specialization("")       // default empty
+                        .bio("")                  // default empty
+                        .verified(false)
+                        .rating(0.0)
+                        .build();
+
+                practitionerProfileRepository.save(profile);
+            }
+        }
 
         return ResponseEntity.ok(Map.of("message", "User registered successfully"));
     }
