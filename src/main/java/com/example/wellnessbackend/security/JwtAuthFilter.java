@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,7 +26,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
         String token = null;
@@ -37,13 +39,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         }
 
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
             UserDetails userDetails = userDetailsService.loadUserByUsername(email);
 
             if (jwtUtil.validateToken(token, userDetails)) {
 
-                // Extract ROLE from token
+                // JWT contains: PATIENT / ADMIN / PRACTITIONER
                 String role = jwtUtil.extractRole(token);
-                SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_"+role);
+
+                // Spring Security expects: ROLE_PATIENT
+                SimpleGrantedAuthority authority =
+                        new SimpleGrantedAuthority("ROLE_" + role);
 
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(
@@ -53,6 +59,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                         );
 
                 System.out.println("ROLE FROM TOKEN: " + authority.getAuthority());
+                // Example output: ROLE_PATIENT
+
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }

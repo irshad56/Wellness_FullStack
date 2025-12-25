@@ -3,6 +3,7 @@ package com.example.wellnessbackend.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,17 +34,77 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for testing APIs
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        // Public endpoints
-                        .requestMatchers("/api/auth/login", "/api/auth/register",
-                                "/api/auth/refresh-token").permitAll()
-                        .requestMatchers("/api/practitioners").permitAll()
 
-                        // Admin endpoints
+                        // ======================
+                        // TEMP DEBUG FIX (IMPORTANT)
+                        // ======================
+                        .requestMatchers("/error").permitAll()
+
+                        // ======================
+                        // PUBLIC AUTH ENDPOINTS
+                        // ======================
+                        .requestMatchers(
+                                "/api/auth/login",
+                                "/api/auth/register",
+                                "/api/auth/refresh-token"
+                        ).permitAll()
+
+                        // ======================
+                        // PUBLIC PRACTITIONER & PRODUCT VIEW
+                        // ======================
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/practitioners/**",
+                                "/api/products",
+                                "/api/products/**"
+                        ).permitAll()
+
+                        // ======================
+                        // PRODUCT MANAGEMENT
+                        // ======================
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/products"
+                        ).hasAnyRole("ADMIN", "PRACTITIONER")
+
+                        .requestMatchers(HttpMethod.PUT,
+                                "/api/products/**"
+                        ).hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.DELETE,
+                                "/api/products/**"
+                        ).hasRole("ADMIN")
+
+                        // ======================
+                        // RECOMMENDATION ENDPOINTS
+                        // ======================
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/recommendations"
+                        ).hasRole("PATIENT")
+
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/recommendations/user/**"
+                        ).hasAnyRole("PATIENT", "ADMIN")
+
+                        // ======================
+                        // NOTIFICATIONS (Milestone 3)
+                        // ======================
+                        .requestMatchers(HttpMethod.POST,
+                                "/api/notifications"
+                        ).hasRole("PATIENT")
+
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/notifications/**"
+                        ).hasAnyRole("PATIENT", "ADMIN")
+
+                        // ======================
+                        // ADMIN
+                        // ======================
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
-                        // Any other request requires authentication
+                        // ======================
+                        // EVERYTHING ELSE
+                        // ======================
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
