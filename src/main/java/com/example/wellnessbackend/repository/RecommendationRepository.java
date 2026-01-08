@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface RecommendationRepository extends JpaRepository<Recommendation, Long> {
 
-    // Fetch all recommendations for a specific user
-    List<Recommendation> findByUserId(Long userId);
+    // Fetch all recommendations for a specific user (latest first)
+    List<Recommendation> findByUserIdOrderByCreatedAtDesc(Long userId);
 }

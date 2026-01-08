@@ -17,13 +17,23 @@ public class Recommendation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;             // ID of the patient who received the recommendation
+    @Column(nullable = false)
+    private Long userId;   // Patient who received the recommendation
 
-    private String symptom;          // Symptom reported by the user
+    @Column(nullable = false, length = 255)
+    private String symptom;   // Symptom reported by the user
 
-    private String suggestedTherapy; // Suggested therapy type
+    @Column(nullable = false, length = 100)
+    private String suggestedTherapy;  // Suggested therapy type
 
-    private String sourceAPI;        // API / engine that generated the recommendation
+    @Column(nullable = false, length = 50)
+    private String sourceAPI;  // RULE_ENGINE / OPENFDA / WHO etc.
 
-    private LocalDateTime timestamp; // When the recommendation was generated
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

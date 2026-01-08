@@ -46,6 +46,7 @@ public class AuthController {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRole(request.getRole() != null ? request.getRole() : Role.PATIENT);
         user.setVerified(false);
+        user.setBio(request.getBio() != null ? request.getBio() : "Temporary bio"); // ✅
 
         User savedUser = userRepository.save(user);
 
@@ -98,9 +99,15 @@ public class AuthController {
                                 "message", "Login successful",
                                 "accessToken", accessToken,
                                 "refreshToken", refreshToken,
-                                "role", user.getRole().name(),
-                                "verified", user.isVerified()
+                                "user", Map.of(
+                                        "id", user.getId(),
+                                        "name", user.getName(),
+                                        "email", user.getEmail(),
+                                        "role", user.getRole().name(),
+                                        "verified", user.isVerified()
+                                )
                         ));
+
                     } else {
                         return ResponseEntity.status(401).body(Map.of("message", "Invalid password"));
                     }

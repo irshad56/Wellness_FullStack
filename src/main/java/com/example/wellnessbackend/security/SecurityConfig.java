@@ -19,31 +19,51 @@ public class SecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
 
+    // ======================
+    // PASSWORD ENCODER
+    // ======================
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // ======================
+    // AUTH MANAGER
+    // ======================
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
 
+    // ======================
+    // SECURITY FILTER CHAIN
+    // ======================
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
+                // Disable CSRF (JWT based auth)
                 .csrf(csrf -> csrf.disable())
+
+                // Stateless session
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+                // Authorization rules
                 .authorizeHttpRequests(auth -> auth
 
                         // ======================
-                        // TEMP DEBUG FIX (IMPORTANT)
+                        // COMMON / ERROR / SWAGGER
                         // ======================
-                        .requestMatchers("/error").permitAll()
+                        .requestMatchers(
+                                "/error",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
+                        ).permitAll()
 
                         // ======================
-                        // PUBLIC AUTH ENDPOINTS
+                        // AUTH (PUBLIC)
                         // ======================
                         .requestMatchers(
                                 "/api/auth/login",
@@ -52,64 +72,68 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // ======================
-                        // PUBLIC PRACTITIONER & PRODUCT VIEW
+                        // PRACTITIONERS (PUBLIC VIEW)
                         // ======================
                         .requestMatchers(HttpMethod.GET,
-                                "/api/practitioners/**",
-                                "/api/products",
-                                "/api/products/**"
+                                "/api/practitioners/**"
                         ).permitAll()
 
                         // ======================
-                        // PRODUCT MANAGEMENT
+                        // PRODUCTS
                         // ======================
+                        .requestMatchers(HttpMethod.GET,
+                                "/api/products/**"
+                        ).permitAll()
                         .requestMatchers(HttpMethod.POST,
                                 "/api/products"
                         ).hasAnyRole("ADMIN", "PRACTITIONER")
-
                         .requestMatchers(HttpMethod.PUT,
                                 "/api/products/**"
                         ).hasRole("ADMIN")
-
                         .requestMatchers(HttpMethod.DELETE,
                                 "/api/products/**"
                         ).hasRole("ADMIN")
 
                         // ======================
-                        // RECOMMENDATION ENDPOINTS
+                        // RECOMMENDATIONS
                         // ======================
                         .requestMatchers(HttpMethod.POST,
                                 "/api/recommendations"
                         ).hasRole("PATIENT")
-
                         .requestMatchers(HttpMethod.GET,
                                 "/api/recommendations/user/**"
                         ).hasAnyRole("PATIENT", "ADMIN")
 
                         // ======================
-                        // NOTIFICATIONS (Milestone 3)
+                        // EXTERNAL API (Milestone 4) - PUBLIC
+                        // ======================
+                        .requestMatchers(HttpMethod.GET,
+                                "/external/**"
+                        ).permitAll()
+
+                        // ======================
+                        // NOTIFICATIONS
                         // ======================
                         .requestMatchers(HttpMethod.POST,
                                 "/api/notifications"
                         ).hasRole("PATIENT")
-
                         .requestMatchers(HttpMethod.GET,
                                 "/api/notifications/**"
                         ).hasAnyRole("PATIENT", "ADMIN")
 
                         // ======================
-                        // ADMIN
+                        // ADMIN ONLY
                         // ======================
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/admin/**")
+                        .hasRole("ADMIN")
 
                         // ======================
                         // EVERYTHING ELSE
                         // ======================
                         .anyRequest().authenticated()
                 )
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
+
+                // JWT Filter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
