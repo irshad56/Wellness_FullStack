@@ -379,6 +379,8 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import usersData from "../data/users.json";
+import api from "../utils/api";
+
 
 // Persist users to localStorage (browser-side DB)
 const USERS_KEY = "wellness_users_v1";
@@ -423,73 +425,54 @@ export function AuthProvider({ children }) {
   // SIGNUP
   // --------------------------
   // newUser shape: { name, email, password, role }
-  const signup = async (newUser) => {
-    const exists = findUser(newUser.email);
-    if (exists) throw new Error("Email already registered.");
+  const signup = async ({ name, email, password, role }) => {
+  try {
+    const response = await api.post("/auth/register", {
+      name,
+      email,
+      password,
+      role: role.toUpperCase(), // IMPORTANT
+      bio: "",                  // TEMP (until profile step)
+    });
 
-    const userObj = {
-      id: Date.now().toString(),
-      name: newUser.name,
-      email: newUser.email,
-      password: newUser.password,
-      role: newUser.role || "patient",
-      failedAttempts: 0,
-      profileCompleted: false,
-      profile: {}, // patient: { bio }, practitioner: { specialization, verified }
-    };
+    return response.data;
+  } catch (error) {
+    console.error("Signup failed:", error.response?.data || error.message);
+    throw new Error(
+      error.response?.data?.message || "Signup failed"
+    );
+  }
+};
 
-    const updated = [...users, userObj];
-    setUsers(updated);
 
-    // set as current user so signup -> dashboard flow doesn't force login
-    setCurrentUser(userObj);
-
-    // return the created user for immediate routing decisions
-    return userObj;
-  };
 
   // --------------------------
   // LOGIN
   // --------------------------
   // returns the user object on success
   const login = async (email, password) => {
-    const user = findUser(email);
+  try {
+    const response = await api.post("/auth/login", { email, password });
+    
+    // backend returns: { accessToken, refreshToken, user: {...} }
+    const { accessToken, refreshToken, user } = response.data;
 
-    if (!user) {
-      throw new Error("Email not registered, please signup first.");
-    }
+    // Save tokens in localStorage
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("refreshToken", refreshToken);
 
-    if (user.failedAttempts >= 10) {
-      throw new Error(
-        "Too many failed attempts. Please use Forgot Password option."
-      );
-    }
+    // Update currentUser state
+    setCurrentUser(user);
 
-    if (user.password !== password) {
-      const updatedUsers = users.map((u) =>
-        u.email === email ? { ...u, failedAttempts: (u.failedAttempts || 0) + 1 } : u
-      );
-      setUsers(updatedUsers);
-
-      const attemptsLeft = 9 - (user.failedAttempts || 0);
-      throw new Error(
-        attemptsLeft > 0
-          ? `Incorrect password. ${attemptsLeft} attempts left.`
-          : "Incorrect password. No attempts left. Please use Forgot Password."
-      );
-    }
-
-    // reset failed attempts
-    const updatedUsers = users.map((u) =>
-      u.email === email ? { ...u, failedAttempts: 0 } : u
+    return user; // same shape as before so Login.jsx still works
+  } catch (error) {
+    console.error("Login failed:", error.response?.data || error.message);
+    throw new Error(
+      error.response?.data?.message || "Login failed, check credentials."
     );
-    setUsers(updatedUsers);
+  }
+};
 
-    // important: use fresh user from updatedUsers (preserves fields)
-    const logged = updatedUsers.find((u) => u.email === email);
-    setCurrentUser(logged);
-    return logged;
-  };
 
   // --------------------------
   // RESET PASSWORD

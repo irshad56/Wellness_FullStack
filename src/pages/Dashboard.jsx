@@ -21,7 +21,9 @@ export default function Dashboard() {
 
   if (!currentUser) return null;
 
-  const { name, email, role } = currentUser;
+  const { name, email } = currentUser;
+  const role = currentUser.role?.toUpperCase();
+
 
   // --- ORIGINAL STATE VARIABLES (Functionality Unchanged) ---
   // Using optional chaining and nullish coalescing for safety
@@ -74,7 +76,7 @@ export default function Dashboard() {
 
         {/* Profile Completion Form Card - Matches Login Card Style */}
         <form
-          onSubmit={role === "patient" ? handlePatientSubmit : handlePractitionerSubmit}
+          onSubmit={role === "PATIENT" ? handlePatientSubmit : handlePractitionerSubmit}
           className="w-full max-w-lg lg:w-[80%] 
                        border-4 border-teal-400/70 shadow-2xl rounded-xl 
                        p-6 lg:p-8 bg-white/95 backdrop-blur-sm space-y-6 
@@ -104,7 +106,7 @@ export default function Dashboard() {
             {/* Icon placeholder for profile */}
             <div className="flex justify-center mb-2">
               <div className="w-14 h-14 rounded-full bg-teal-100 border-3 border-teal-500 flex items-center justify-center text-2xl text-teal-600 shadow-lg">
-                {role === 'patient' ? '🧘' : '⚕️'}
+                {role === 'PATIENT' ? '🧘' : '⚕️'}
               </div>
             </div>
 
@@ -137,7 +139,7 @@ export default function Dashboard() {
 
           {/* --- CONTENT BASED ON ROLE --- */}
 
-          {role === "patient" ? (
+          {role === "PATIENT" ? (
             /* PATIENT FORM */
             <div>
               <label className="text-sm font-medium text-slate-700 block mb-1">

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import axios from "axios";
+import api from "../utils/api";
+
 
 export default function Signup() {
   const { signup } = useAuth();
@@ -14,20 +17,37 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  e.preventDefault();
+  setError("");
+  setLoading(true);
 
-    try {
-      const newUser = await signup({ name, email, password, role });
-      // After signup we go to dashboard for onboarding (new-user flow)
-      navigate("/dashboard");
-    } catch (err) {
-      setError(err.message || "Failed to create account. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    const response = await axios.post("http://localhost:8080/api/auth/register", {
+      name,
+      email,
+      password,
+      role: role.toUpperCase(),
+      bio: "Temporary bio",
+    });
+
+    console.log("Signup response:", response.data);
+
+    const user = response.data; // backend should return created user object
+    // Save user in localStorage / context if needed
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    // Redirect immediately to Update Bio page
+    navigate("/dashboard"); // <-- page where user can fill "Tell us more about yourself"
+
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+    setError(err.response?.data?.message || "Signup failed. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   const handleSocialSignup = (provider) => {
     console.log(`Starting ${provider} authentication flow...`);

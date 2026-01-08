@@ -19,13 +19,9 @@ export default function Login() {
 
     try {
       const user = await login(email, password);
-      // If profileCompleted -> existing user (direct to home)
-      // else -> new user (go to dashboard to complete profile)
-      if (user.profileCompleted) {
-        navigate("/home");
-      } else {
-        navigate("/dashboard");
-      }
+
+      navigate("/dashboard");
+
     } catch (err) {
       setError(err.message || "Login failed.");
     } finally {
@@ -63,9 +59,6 @@ export default function Login() {
               onClick={() => handleSocialLogin("Google")}
               className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-slate-300 rounded-lg bg-white hover:bg-slate-50 transition duration-200"
             >
-              <svg className="h-5 w-5" viewBox="0 0 24 24">
-                {/* SVG paths kept same */}
-              </svg>
               <span className="text-slate-700 text-sm font-medium">Continue with Google</span>
             </button>
 
@@ -81,9 +74,7 @@ export default function Login() {
 
           <form className="space-y-4" onSubmit={handleLogin}>
             <div>
-              <label className="text-sm font-medium text-slate-700 block mb-1">
-                Email
-              </label>
+              <label className="text-sm font-medium text-slate-700 block mb-1">Email</label>
               <input
                 type="email"
                 required
