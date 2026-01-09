@@ -1,0 +1,802 @@
+[
+  {
+    "_id": "prod-001",
+    "_name": "Yoga Mat",
+    "_description": "High-quality non-slip yoga mat for daily practice",
+    "_price": 1200,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-002",
+    "_name": "Meditation Cushion",
+    "_description": "Comfortable cushion for meditation and mindfulness",
+    "_price": 800,
+    "_category": "Wellness",
+    "_stock": 30
+  },
+  {
+    "_id": "prod-003",
+    "_name": "Resistance Bands Set",
+    "_description": "Set of 5 resistance bands for full-body workouts",
+    "_price": 1500,
+    "_category": "Fitness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-004",
+    "_name": "Essential Oil Diffuser",
+    "_description": "Ultrasonic diffuser with 7 color LED lights",
+    "_price": 1800,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-005",
+    "_name": "Foam Roller",
+    "_description": "High-density foam roller for muscle recovery",
+    "_price": 900,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-006",
+    "_name": "Aromatherapy Candle",
+    "_description": "Natural soy wax candle with lavender fragrance",
+    "_price": 600,
+    "_category": "Wellness",
+    "_stock": 120
+  },
+  {
+    "_id": "prod-007",
+    "_name": "Jump Rope",
+    "_description": "Adjustable speed jump rope for cardio workouts",
+    "_price": 500,
+    "_category": "Fitness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-008",
+    "_name": "Herbal Tea Set",
+    "_description": "Assorted herbal teas for relaxation and detox",
+    "_price": 700,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-009",
+    "_name": "Balance Board",
+    "_description": "Wooden balance board for core strength training",
+    "_price": 2200,
+    "_category": "Fitness",
+    "_stock": 25
+  },
+  {
+    "_id": "prod-010",
+    "_name": "Neck & Shoulder Massager",
+    "_description": "Electric massager for neck and shoulder relief",
+    "_price": 3500,
+    "_category": "Wellness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-011",
+    "_name": "Kettlebell Set",
+    "_description": "Set of 3 kettlebells for strength training",
+    "_price": 3000,
+    "_category": "Fitness",
+    "_stock": 45
+  },
+  {
+    "_id": "prod-012",
+    "_name": "Scented Bath Bombs",
+    "_description": "Pack of 6 bath bombs for relaxation and skin care",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-013",
+    "_name": "Pull-up Bar",
+    "_description": "Adjustable pull-up bar for doorway installation",
+    "_price": 1800,
+    "_category": "Fitness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-014",
+    "_name": "Mindfulness Journal",
+    "_description": "Daily mindfulness and gratitude journal",
+    "_price": 350,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-015",
+    "_name": "Dumbbell Set",
+    "_description": "Set of adjustable dumbbells up to 20kg",
+    "_price": 4500,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-016",
+    "_name": "Yoga Blocks",
+    "_description": "Pair of foam yoga blocks for support and alignment",
+    "_price": 600,
+    "_category": "Fitness",
+    "_stock": 75
+  },
+  {
+    "_id": "prod-017",
+    "_name": "Massage Oil Set",
+    "_description": "Set of 3 natural massage oils",
+    "_price": 900,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-018",
+    "_name": "Treadmill Mat",
+    "_description": "Protective mat for treadmill or exercise equipment",
+    "_price": 1500,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-019",
+    "_name": "Meditation Timer",
+    "_description": "Digital timer for meditation sessions",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-020",
+    "_name": "Resistance Loop Bands",
+    "_description": "Set of 4 loop bands for stretching and rehab",
+    "_price": 700,
+    "_category": "Fitness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-021",
+    "_name": "Balance Ball",
+    "_description": "Stability ball for core workouts and posture",
+    "_price": 1200,
+    "_category": "Fitness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-022",
+    "_name": "Herbal Supplements",
+    "_description": "Pack of daily wellness herbal supplements",
+    "_price": 1000,
+    "_category": "Wellness",
+    "_stock": 120
+  },
+  {
+    "_id": "prod-023",
+    "_name": "Pilates Ring",
+    "_description": "Pilates magic circle for resistance training",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-024",
+    "_name": "Sleep Mask",
+    "_description": "Soft sleep mask for better rest",
+    "_price": 250,
+    "_category": "Wellness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-025",
+    "_name": "TRX Suspension Trainer",
+    "_description": "Full-body suspension training system",
+    "_price": 3500,
+    "_category": "Fitness",
+    "_stock": 30
+  },
+  {
+    "_id": "prod-026",
+    "_name": "Eucalyptus Shower Steamers",
+    "_description": "Pack of 5 steamers for relaxing showers",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-027",
+    "_name": "Jump Trainer",
+    "_description": "Adjustable plyometric jump trainer",
+    "_price": 2800,
+    "_category": "Fitness",
+    "_stock": 20
+  },
+  {
+    "_id": "prod-028",
+    "_name": "Yoga Strap",
+    "_description": "Cotton yoga strap for flexibility and stretching",
+    "_price": 350,
+    "_category": "Fitness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-029",
+    "_name": "Foot Massager",
+    "_description": "Electric foot massager for relaxation",
+    "_price": 1800,
+    "_category": "Wellness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-030",
+    "_name": "Hand Grippers",
+    "_description": "Set of hand grippers for forearm strength",
+    "_price": 500,
+    "_category": "Fitness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-031",
+    "_name": "Kombucha Starter Kit",
+    "_description": "Home brewing kit for kombucha tea",
+    "_price": 1200,
+    "_category": "Wellness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-032",
+    "_name": "Foam Plyo Box",
+    "_description": "Foam plyometric box for safe jumps",
+    "_price": 2200,
+    "_category": "Fitness",
+    "_stock": 25
+  },
+  {
+    "_id": "prod-033",
+    "_name": "Yoga Wheel",
+    "_description": "Support wheel for deep stretches",
+    "_price": 1500,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-034",
+    "_name": "Herbal Bath Salts",
+    "_description": "Relaxing salts for bath therapy",
+    "_price": 600,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-035",
+    "_name": "Ab Roller",
+    "_description": "Core strength training ab roller",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-036",
+    "_name": "Aromatherapy Set",
+    "_description": "Essential oils set for relaxation",
+    "_price": 1200,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-037",
+    "_name": "Weighted Jump Rope",
+    "_description": "Weighted rope for advanced cardio workouts",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-038",
+    "_name": "Meditation Bench",
+    "_description": "Wooden meditation bench for comfortable sitting",
+    "_price": 1500,
+    "_category": "Wellness",
+    "_stock": 30
+  },
+  {
+    "_id": "prod-039",
+    "_name": "Foam Exercise Ball",
+    "_description": "Lightweight exercise ball for pilates",
+    "_price": 900,
+    "_category": "Fitness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-040",
+    "_name": "Yoga Blanket",
+    "_description": "Soft cotton blanket for yoga practice",
+    "_price": 600,
+    "_category": "Fitness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-041",
+    "_name": "Detox Tea",
+    "_description": "Herbal tea blend for detoxification",
+    "_price": 700,
+    "_category": "Wellness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-042",
+    "_name": "Medicine Ball",
+    "_description": "Weighted ball for full-body workouts",
+    "_price": 1800,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-043",
+    "_name": "Acupressure Mat",
+    "_description": "Mat with acupressure points for relaxation",
+    "_price": 1200,
+    "_category": "Wellness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-044",
+    "_name": "Elliptical Trainer Mat",
+    "_description": "Protective mat for elliptical machine",
+    "_price": 1500,
+    "_category": "Fitness",
+    "_stock": 25
+  },
+  {
+    "_id": "prod-045",
+    "_name": "Yoga Socks",
+    "_description": "Non-slip socks for yoga practice",
+    "_price": 250,
+    "_category": "Fitness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-046",
+    "_name": "Massage Ball Set",
+    "_description": "Set of massage balls for trigger points",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-047",
+    "_name": "Spin Bike Mat",
+    "_description": "Floor mat to protect surface from spin bike",
+    "_price": 1200,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-048",
+    "_name": "Herbal Face Masks",
+    "_description": "Natural face masks for skin care",
+    "_price": 800,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-049",
+    "_name": "Resistance Cable Set",
+    "_description": "Set of cables for home resistance training",
+    "_price": 1800,
+    "_category": "Fitness",
+    "_stock": 45
+  },
+  {
+    "_id": "prod-050",
+    "_name": "Meditation Bell",
+    "_description": "Traditional bell for meditation sessions",
+    "_price": 300,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-051",
+    "_name": "Pull-Up Assist Band",
+    "_description": "Heavy-duty pull-up assist resistance band",
+    "_price": 700,
+    "_category": "Fitness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-052",
+    "_name": "Herbal Sleep Aid",
+    "_description": "Natural supplements to improve sleep quality",
+    "_price": 900,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-053",
+    "_name": "Yoga Mat Cleaner",
+    "_description": "Organic spray cleaner for yoga mats",
+    "_price": 350,
+    "_category": "Fitness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-054",
+    "_name": "Meditation Stool",
+    "_description": "Ergonomic stool for comfortable meditation",
+    "_price": 1200,
+    "_category": "Wellness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-055",
+    "_name": "Adjustable Dumbbells",
+    "_description": "Set of adjustable dumbbells up to 30kg",
+    "_price": 5000,
+    "_category": "Fitness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-056",
+    "_name": "Scented Essential Oils",
+    "_description": "Set of 6 essential oils for aromatherapy",
+    "_price": 1500,
+    "_category": "Wellness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-057",
+    "_name": "Resistance Tube Set",
+    "_description": "Set of tubes for resistance training exercises",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-058",
+    "_name": "Meditation App Subscription",
+    "_description": "1-year premium subscription for meditation guidance",
+    "_price": 2000,
+    "_category": "Wellness",
+    "_stock": 999
+  },
+  {
+    "_id": "prod-059",
+    "_name": "Weighted Vest",
+    "_description": "Adjustable weighted vest for bodyweight training",
+    "_price": 3500,
+    "_category": "Fitness",
+    "_stock": 25
+  },
+  {
+    "_id": "prod-060",
+    "_name": "Herbal Bath Soak",
+    "_description": "Relaxing herbal bath soak for stress relief",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-061",
+    "_name": "Exercise Step Platform",
+    "_description": "Step platform for aerobic and strength workouts",
+    "_price": 2000,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-062",
+    "_name": "Meditation Cushion Set",
+    "_description": "Cushion set for full meditation comfort",
+    "_price": 1800,
+    "_category": "Wellness",
+    "_stock": 45
+  },
+  {
+    "_id": "prod-063",
+    "_name": "Foam Yoga Block",
+    "_description": "Single foam block for yoga support and alignment",
+    "_price": 350,
+    "_category": "Fitness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-064",
+    "_name": "Herbal Hand Cream",
+    "_description": "Natural hand cream for moisturizing and soothing",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-065",
+    "_name": "Adjustable Bench",
+    "_description": "Multipurpose bench for home gym workouts",
+    "_price": 3500,
+    "_category": "Fitness",
+    "_stock": 30
+  },
+  {
+    "_id": "prod-066",
+    "_name": "Scented Candles Set",
+    "_description": "Set of 5 candles for relaxation and mood lighting",
+    "_price": 700,
+    "_category": "Wellness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-067",
+    "_name": "Resistance Pull-Up Bands",
+    "_description": "Set of 3 resistance bands for pull-up assistance",
+    "_price": 900,
+    "_category": "Fitness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-068",
+    "_name": "Mindfulness Cards",
+    "_description": "Deck of cards with daily mindfulness prompts",
+    "_price": 350,
+    "_category": "Wellness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-069",
+    "_name": "Core Sliders",
+    "_description": "Set of sliders for core and balance exercises",
+    "_price": 600,
+    "_category": "Fitness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-070",
+    "_name": "Herbal Foot Soak",
+    "_description": "Relaxing foot soak with natural herbs",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-071",
+    "_name": "Yoga Mat Bag",
+    "_description": "Durable bag for carrying yoga mats",
+    "_price": 700,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-072",
+    "_name": "Meditation Music CD",
+    "_description": "Relaxing music for meditation and yoga practice",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-073",
+    "_name": "Battle Rope",
+    "_description": "Heavy-duty battle rope for full-body workouts",
+    "_price": 3000,
+    "_category": "Fitness",
+    "_stock": 20
+  },
+  {
+    "_id": "prod-074",
+    "_name": "Herbal Sleep Pillow Spray",
+    "_description": "Pillow spray with lavender and chamomile",
+    "_price": 600,
+    "_category": "Wellness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-075",
+    "_name": "Adjustable Weight Plates",
+    "_description": "Set of plates for adjustable dumbbells",
+    "_price": 3500,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-076",
+    "_name": "Meditation Eye Pillow",
+    "_description": "Herbal-filled eye pillow for relaxation",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-077",
+    "_name": "Foam Massage Roller",
+    "_description": "Foam roller for muscle recovery and massage",
+    "_price": 900,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-078",
+    "_name": "Herbal Lip Balm",
+    "_description": "Natural lip balm with soothing ingredients",
+    "_price": 250,
+    "_category": "Wellness",
+    "_stock": 120
+  },
+  {
+    "_id": "prod-079",
+    "_name": "Jump Rope Speed Set",
+    "_description": "High-speed jump rope for advanced cardio",
+    "_price": 600,
+    "_category": "Fitness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-080",
+    "_name": "Meditation Incense Sticks",
+    "_description": "Pack of incense sticks for mindfulness practice",
+    "_price": 400,
+    "_category": "Wellness",
+    "_stock": 90
+  },
+  {
+    "_id": "prod-081",
+    "_name": "Resistance Band Door Anchor",
+    "_description": "Anchor for resistance band exercises",
+    "_price": 350,
+    "_category": "Fitness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-082",
+    "_name": "Herbal Body Lotion",
+    "_description": "Natural body lotion for daily moisturizing",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-083",
+    "_name": "Push-Up Bars",
+    "_description": "Set of push-up bars for chest and arm workouts",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-084",
+    "_name": "Meditation Wall Poster",
+    "_description": "Inspirational poster for meditation spaces",
+    "_price": 250,
+    "_category": "Wellness",
+    "_stock": 120
+  },
+  {
+    "_id": "prod-085",
+    "_name": "Yoga Mat Towel",
+    "_description": "Non-slip towel for yoga mats",
+    "_price": 600,
+    "_category": "Fitness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-086",
+    "_name": "Herbal Face Cream",
+    "_description": "Natural face cream for hydration",
+    "_price": 700,
+    "_category": "Wellness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-087",
+    "_name": "Kettlebell Adjustable",
+    "_description": "Set of kettlebells for strength training",
+    "_price": 3000,
+    "_category": "Fitness",
+    "_stock": 35
+  },
+  {
+    "_id": "prod-088",
+    "_name": "Meditation Stones Set",
+    "_description": "Set of stones for mindfulness and energy",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-089",
+    "_name": "Balance Trainer Disc",
+    "_description": "Balance disc for stability and core exercises",
+    "_price": 900,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-090",
+    "_name": "Herbal Hand Soap",
+    "_description": "Natural hand soap for daily care",
+    "_price": 250,
+    "_category": "Wellness",
+    "_stock": 100
+  },
+  {
+    "_id": "prod-091",
+    "_name": "Exercise Mat",
+    "_description": "Thick exercise mat for floor workouts",
+    "_price": 1200,
+    "_category": "Fitness",
+    "_stock": 60
+  },
+  {
+    "_id": "prod-092",
+    "_name": "Meditation Timer App",
+    "_description": "Subscription-based meditation timer",
+    "_price": 1000,
+    "_category": "Wellness",
+    "_stock": 999
+  },
+  {
+    "_id": "prod-093",
+    "_name": "Weighted Medicine Ball",
+    "_description": "Weighted ball for functional workouts",
+    "_price": 1800,
+    "_category": "Fitness",
+    "_stock": 30
+  },
+  {
+    "_id": "prod-094",
+    "_name": "Herbal Eye Mask",
+    "_description": "Herbal-filled eye mask for relaxation",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 80
+  },
+  {
+    "_id": "prod-095",
+    "_name": "Foam Resistance Roller",
+    "_description": "Foam roller with resistance elements",
+    "_price": 1000,
+    "_category": "Fitness",
+    "_stock": 40
+  },
+  {
+    "_id": "prod-096",
+    "_name": "Aromatherapy Kit",
+    "_description": "Complete kit with essential oils and diffuser",
+    "_price": 2000,
+    "_category": "Wellness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-097",
+    "_name": "Jump Rope Weighted",
+    "_description": "Weighted rope for strength and endurance",
+    "_price": 800,
+    "_category": "Fitness",
+    "_stock": 70
+  },
+  {
+    "_id": "prod-098",
+    "_name": "Meditation Music Subscription",
+    "_description": "Monthly subscription for calming music",
+    "_price": 500,
+    "_category": "Wellness",
+    "_stock": 999
+  },
+  {
+    "_id": "prod-099",
+    "_name": "Core Ab Wheel",
+    "_description": "Ab wheel for core strength exercises",
+    "_price": 700,
+    "_category": "Fitness",
+    "_stock": 50
+  },
+  {
+    "_id": "prod-100",
+    "_name": "Herbal Candle Set",
+    "_description": "Set of candles infused with herbs",
+    "_price": 600,
+    "_category": "Wellness",
+    "_stock": 60
+  }
+]

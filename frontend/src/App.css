@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* 👇 THIS IS REQUIRED IN TAILWIND v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
